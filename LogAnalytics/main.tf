@@ -110,4 +110,28 @@ resource "azurerm_monitor_aad_diagnostic_setting" "example" { #does not support 
       #days    = 1
     }
   }
+  log {
+    category = "MicrosoftGraphActivityLogs"
+    enabled  = false
+    retention_policy {
+      #enabled = true
+      #days    = 1
+    }
+  }
+  log {
+    category = "NetworkAccessTrafficLogs"
+    enabled  = false
+    retention_policy {
+      #enabled = true
+      #days    = 1
+    }
+  }
+  log {
+    category = "EnrichedOffice365AuditLogs"
+    enabled  = false
+    retention_policy {
+      #enabled = true
+      #days    = 1
+    }
+  }
 }
