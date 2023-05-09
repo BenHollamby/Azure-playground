@@ -168,7 +168,7 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "alert" {
   criteria {
     query                   = <<-QUERY
       SigninLogs
-      | where UserPrincipalName == "testben@benhollambyoutlook.onmicrosoft.com"
+      | where UserPrincipalName == "somebody@someone.com"
       QUERY
     time_aggregation_method = var.criteria_time_aggregation_method
     threshold               = var.criteria_threshold
