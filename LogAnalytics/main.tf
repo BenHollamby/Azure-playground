@@ -167,8 +167,11 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "alert" {
   severity             = var.alert_rule_severity
   criteria {
     query                   = <<-QUERY
+      let start_time = ago(1h);
+      let end_time = now();
       SigninLogs
-      | where UserPrincipalName == "somebody@someone.com"
+      | where TimeGenerated between (start_time .. end_time )
+      | where UserPrincipalName == "testben@benhollambyoutlook.onmicrosoft.com"
       QUERY
     time_aggregation_method = var.criteria_time_aggregation_method
     threshold               = var.criteria_threshold
@@ -184,6 +187,7 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "alert" {
   description                      = var.alert_rule_description
   display_name                     = var.display_name
   enabled                          = var.alert_enabled
+  mute_actions_after_alert_duration = "PT1H"
   query_time_range_override        = var.alert_rule_frequency
   skip_query_validation            = var.skip_query_validation
   action {

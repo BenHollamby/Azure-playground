@@ -69,7 +69,7 @@ variable "alert_rule_name" {
 }
 variable "alert_rule_frequency" {
   type    = string
-  default = "PT5M"
+  default = "PT5M" #last change you did
 }
 variable "alert_rule_severity" {
   type    = number
@@ -97,7 +97,7 @@ variable "criteria_failing_period_number" {
 }
 variable "auto_mitigation_enabled" {
   type    = bool
-  default = true
+  default = false
 }
 variable "workspace_alerts_storage_enabled" {
   type    = bool
